@@ -6,9 +6,9 @@ public class Main {
 
         // t1.printTeacher();
 
-        Course tarih = new Course(t1, "Tarih", "101", "TRH", 20);
-        Course fizik = new Course(t2, "Fizik", "202", "FZK", 1);
-        Course biyoloji = new Course(t3, "Biyoloji", "303", "BIO", 30);
+        Course tarih = new Course(t1, "Tarih", "101", "TRH");
+        Course fizik = new Course(t2, "Fizik", "202", "FZK");
+        Course biyoloji = new Course(t3, "Biyoloji", "303", "BIO");
         tarih.addTeacher(t1);
         fizik.addTeacher(t2);
         biyoloji.addTeacher(t3);
@@ -16,11 +16,12 @@ public class Main {
 
         Student s1 = new Student(fizik, tarih, biyoloji, "eymen bütün", "1071", "4", 0, false);
         s1.addBulkExamNote(100, 80, 50);
-        // s1.printNote();
+        s1.addSozlu(100, 100, 100);
         s1.isPass();
 
         Student s2 = new Student(tarih, fizik, biyoloji, "necmi", "100", "4", 0, false);
         s2.addBulkExamNote(50, 30, 20);
+        s2.addSozlu(50, 50, 50);
         s2.isPass();
     }
 }

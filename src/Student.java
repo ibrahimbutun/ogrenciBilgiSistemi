@@ -14,6 +14,7 @@ public class Student {
         this.classes = classes;
         this.avarage = 0.0;
         this.isPass = false;
+        calculateAvarage();
     }
 
     void addBulkExamNote(int note1, int note2, int note3) {
@@ -29,15 +30,35 @@ public class Student {
 
     }
 
+    void addSozlu(int tarihSozlu, int fizikSozlu, int biyolojiSozlu) {
+        if (tarihSozlu >= 0 && tarihSozlu <= 100) {
+            System.out.println("tarihSozlu");
+            this.c1.sozlu = tarihSozlu;
+        }
+        if (fizikSozlu >= 0 && fizikSozlu <= 100) {
+            System.out.println("fizikSozlu");
+            this.c2.sozlu = fizikSozlu;
+        }
+        if (biyolojiSozlu >= 0 && biyolojiSozlu <= 100) {
+            System.out.println("biyolojiSozlu");
+            this.c3.sozlu = biyolojiSozlu;
+        }
+    }
+
+    void calculateAvarage() {
+        System.out.println("sozlu notları eklendi.");
+        this.avarage = ((this.c1.note * 0.8 + this.c1.sozlu * 0.2) + (this.c2.note * 0.8 + this.c2.sozlu * 0.2)
+                + (this.c3.note * 0.8 + this.c3.sozlu * 0.2)) / 3.0;
+        System.out.println("sözlü notu çıkış");
+    }
+
     void isPass() {
-        this.avarage = (this.c1.note + this.c2.note + this.c3.note) / 3.0;
+        calculateAvarage();
         if (this.avarage > 55) {
-            System.out.println("----------------------------------");
             System.out.println("başarılı");
             this.isPass = true;
 
         } else {
-            System.out.println("----------------------------------");
             System.out.println("başarısız...");
             this.isPass = false;
         }
@@ -45,11 +66,12 @@ public class Student {
     }
 
     void printNote() {
-        System.out.println("----------------------------------");
         System.out.println(c1.name + "Notu \t:" + this.c1.note);
+        System.out.println(c1.name + "Sözlü Notu \t:" + this.c1.sozlu);
         System.out.println(c2.name + "Notu \t:" + this.c2.note);
+        System.out.println(c2.name + "Sözlü Notu \t:" + this.c2.sozlu);
         System.out.println(c3.name + "Notu \t:" + this.c3.note);
-        System.out.println("----------------------------------");
+        System.out.println(c3.name + "Sözlü Notu \t:" + this.c3.sozlu);
         System.out.println("Ortalamanız \t: " + this.avarage);
 
     }
